@@ -78,3 +78,10 @@ QSqlQueryModel* Employee::afficher()
           model->setHeaderData(6, Qt::Horizontal, QObject::tr("Mdps"));
           return model;
 }
+
+QSqlQueryModel* Employee::rechercher(QString a)
+{
+    QSqlQueryModel * model=new QSqlQueryModel();
+    model->setQuery("select * from GS_EMPLOYE where (Nom like '%"+a+"%' or Prenom like '%"+a+"%' or CIN like '%"+a+"%' or Function like '%"+a+"%' ) ");
+    return    model;
+}

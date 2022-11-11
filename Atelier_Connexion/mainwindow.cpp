@@ -92,3 +92,24 @@ void MainWindow::on_pb_modifier_clicked()
 
 
 }
+
+
+void MainWindow::on_pb_chercher_clicked()
+{
+    QString x = ui->lineEdit_rechercher->text();
+    bool test=E.rechercher(x);//makensh test
+    if(test)
+      {
+          QMessageBox::information(nullptr, QObject::tr("Rechercher un employé "),
+                             QObject::tr("employé existe.\n"
+                                         "Click Cancel to exit."), QMessageBox::Cancel);
+          ui->tab_employee_2->setModel(E.rechercher(x));
+
+      }
+      else{
+          QMessageBox::critical(nullptr, QObject::tr("Rechercher un employé"),
+                             QObject::tr("Employe n'existe pas.\n"
+                                         "Click Cancel to exit."), QMessageBox::Cancel);
+      }
+
+}

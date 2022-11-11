@@ -24,6 +24,10 @@ private slots:
 
     void on_pb_modifier_clicked();
 
+    void on_pb_tri_clicked();
+
+    void on_pb_chercher_clicked();
+
 private:
     Ui::MainWindow *ui;
     Employee E;

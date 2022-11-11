@@ -29,6 +29,7 @@ public:
         bool supprimer(int);
         bool modifier_Employee();
 
+        QSqlQueryModel* rechercher(QString);
 };
 
 #endif // EMPLOYEE_H
