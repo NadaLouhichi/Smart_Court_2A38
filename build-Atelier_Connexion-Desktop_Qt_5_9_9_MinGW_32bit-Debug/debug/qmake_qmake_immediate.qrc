@@ -1,0 +1,7 @@
+<!DOCTYPE RCC><RCC version="1.0">
+<qresource prefix="/">
+<file alias="rsc/eventindicator.png">C:/Users/USER/Desktop/studies/2A/projet/gestion employe_f/Atelier_Connexion/rsc/eventindicator.png</file>
+<file alias="rsc/notif.png">C:/Users/USER/Desktop/studies/2A/projet/gestion employe_f/Atelier_Connexion/rsc/notif.png</file>
+<file alias="rsc/sound.wav">C:/Users/USER/Desktop/studies/2A/projet/gestion employe_f/Atelier_Connexion/rsc/sound.wav</file>
+</qresource>
+</RCC>

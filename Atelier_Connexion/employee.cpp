@@ -2,6 +2,11 @@
 #include "QSqlQuery"
 #include "QtDebug"
 #include <QObject>
+# include <QSystemTrayIcon>
+#include <QSoundEffect>
+#include <QIcon>
+#include "QDate"
+
 Employee::Employee()
 {
 CIN=0;Nom="";Prenom="",Email="",Phone="",Function="",Mdp="";
@@ -68,7 +73,7 @@ query.prepare("DELETE FROM GS_EMPLOYE WHERE CIN=:cin ");
 QSqlQueryModel* Employee::afficher()
 {
     QSqlQueryModel* model=new QSqlQueryModel();
-          model->setQuery("SELECT* FROM GS_EMPLOYE");
+          model->setQuery("SELECT* FROM GS_SALLES");
           model->setHeaderData(0, Qt::Horizontal, QObject::tr("CIN"));
           model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));
           model->setHeaderData(2, Qt::Horizontal, QObject::tr("Prenom"));
@@ -82,6 +87,97 @@ QSqlQueryModel* Employee::afficher()
 QSqlQueryModel* Employee::rechercher(QString a)
 {
     QSqlQueryModel * model=new QSqlQueryModel();
-    model->setQuery("select * from GS_EMPLOYE where (Nom like '%"+a+"%' or Prenom like '%"+a+"%' or CIN like '%"+a+"%' or Function like '%"+a+"%' ) ");
+    model->setQuery("select * from GS_EMPLOYE where (Nom like '%"+a+"%' or Prenom like '%"+a+"%' or CIN like '%"+a+"%' or Function like '%"+a+"%' )");
     return    model;
+ }
+bool Employee::testAJ(QString a) //pour notifier les avocats et juges
+{
+    bool test=false;
+    if(a=="Juge" or a=="Avocat")
+       { test=true;}
+    return test;
+}
+bool Employee::testNP(QString a ,QString p)
+{
+    bool testN=false;
+    bool testP=false;
+    bool testNP=false;
+    testN=rechercher(a);
+    testP=rechercher(p);
+    if(testN and testP)
+    {
+       testNP=(testN and testP);
+    }
+
+    return testNP;
+
+}
+
+QSqlQueryModel *Employee::trier(QString x)
+{
+    QSqlQueryModel * model= new QSqlQueryModel();
+    qDebug()<<x<<endl;
+    if(x=="Nom")
+        model->setQuery("select* from GS_Employe order by Nom");
+    else if(x=="CIN")
+        model->setQuery("select CIN,NOM,PRENOM,EMAIL,PHONE,FUNCTION from GS_Employe order by CIN");
+    else if(x=="Prenom")
+        model->setQuery("select CIN,NOM,PRENOM,EMAIL,PHONE,FUNCTION from GS_Employe order by Prenom");
+    else if (x=="Function")
+        model->setQuery("select CIN,NOM,PRENOM,EMAIL,PHONE,FUNCTION from GS_Employe order by Function");
+        return model;
+}
+int Employee :: statistique_E(QString Function)
+{
+ int nbrEF=0;
+  QSqlQuery requete("select  FUNCTION from GS_Employe  where FUNCTION like '"+Function+"%' ;");
+
+   while(requete.next())
+    {
+        nbrEF++;
+        }
+   return nbrEF;
+
+}
+int Employee :: statistique_ET()
+{
+    int nbrET=0;
+     QSqlQuery requete("select FUNCTION from GS_Employe ");
+      while(requete.next())
+       {
+           nbrET++;
+       }
+           return nbrET;
+}
+
+bool Employee::notification()
+ {
+    bool  test=false;
+            int n=0;
+               QSqlQuery requete("SELECT DATEA FROM GS_AFFAIRESJ WHERE DATEA LIKE (sysdate+2);"); //date du systeme
+            while(requete.next())
+                {
+                test=true;
+                n++;
+                 }
+            if(n!=0)
+
+            {
+                        QSystemTrayIcon *trayIcon = new QSystemTrayIcon;
+                        trayIcon->setIcon(QIcon(":Desktop/studies/2A/projet/gestion employe_f/Atelier_Connexion/rsc/notif.png"));
+                        trayIcon->show();
+                        trayIcon->showMessage("Attention" ,"Vous avez un affaire juridique dans deux jours",QSystemTrayIcon::Information,15000);
+                        // include affaireJuridique.h n3ayet lel affichage
+                        if(trayIcon)
+                        {
+                           QSoundEffect * sound_effect = new QSoundEffect;
+                               sound_effect->setSource(QUrl("Desktop/studies/2A/projet/gestion employe_f/Atelier_Connexion/rsc/sound.wav"));
+                             // sound_effect->setLoopCount(QSoundEffect::Infinite);
+                               sound_effect->setVolume(0.9);
+                               sound_effect->play();
+                           //  QEventLoop loop;
+                           //  loop.exec();
+                         }
+           }
+      return test;
 }

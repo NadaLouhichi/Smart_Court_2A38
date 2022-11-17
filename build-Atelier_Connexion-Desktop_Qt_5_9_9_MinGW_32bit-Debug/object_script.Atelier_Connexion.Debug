@@ -1,0 +1,16 @@
+INPUT(
+./debug\employee.o
+./debug\event.o
+./debug\main.o
+./debug\mainwindow.o
+./debug\connection.o
+./debug\secformdialog.o
+./debug\sqleventmodel.o
+./debug\qrc_qml.o
+./debug\qrc_rsc.o
+./debug\qrc_qmake_qmake_immediate.o
+./debug\moc_event.o
+./debug\moc_mainwindow.o
+./debug\moc_secformdialog.o
+./debug\moc_sqleventmodel.o
+);

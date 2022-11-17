@@ -3,11 +3,12 @@
 # Project created by QtCreator 2018-10-26T21:45:23
 #
 #-------------------------------------------------
-
-QT       += core gui sql
+QT       += core gui sql axcontainer widgets network qml  quickwidgets quick opengl
+QT += qml quick sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
-
+QT += printsupport
+QT += multimedia
 TARGET = Atelier_Connexion
 TEMPLATE = app
 
@@ -24,21 +25,49 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 CONFIG += c++11
 
+include(src/src.pri)
+include(shared/shared.pri)
+
 SOURCES += \
     employee.cpp \
+    event.cpp \
         main.cpp \
         mainwindow.cpp \
-    connection.cpp
+    connection.cpp \
+    secformdialog.cpp \
+    sqleventmodel.cpp
 
 HEADERS += \
     employee.h \
+    event.h \
         mainwindow.h \
-    connection.h
+    connection.h \
+    qtquickcontrolsapplication.h \
+    secformdialog.h \
+    sqleventmodel.h
+
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+    secformdialog.ui
+
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+QMAKE_CXXFLAGS+=-std=gnu++14
+
+OTHER_FILES +=
+    qml/main.qml
+
+RESOURCES += \
+    qml/qml.qrc \
+    rsc/rsc.qrc \
+    rsc/eventindicator.png \
+    rsc/notif.png \
+    rsc/sound.wav
+
+target.path = $$[QT_INSTALL_EXAMPLES]/quickcontrols/controls/calendar
+INSTALLS += target
+

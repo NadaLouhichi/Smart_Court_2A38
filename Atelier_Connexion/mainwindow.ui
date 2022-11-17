@@ -14,21 +14,21 @@
    <string>Gestion des Employés</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QTabWidget" name="tab">
+   <widget class="QTabWidget" name="gestion_employe">
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>90</y>
-      <width>941</width>
-      <height>571</height>
+      <x>20</x>
+      <y>40</y>
+      <width>1071</width>
+      <height>631</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab_cruds">
      <attribute name="title">
-      <string>Ajouter Employee</string>
+      <string>CRUDS Employee</string>
      </attribute>
      <widget class="QGroupBox" name="Ajoutmodification">
       <property name="geometry">
@@ -38,6 +38,10 @@
         <width>391</width>
         <height>391</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(210, 253, 255);
+</string>
       </property>
       <property name="title">
        <string>Ajout</string>
@@ -110,6 +114,12 @@
          <height>28</height>
         </rect>
        </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(209, 203, 255);
+font: 8pt &quot;Microsoft JhengHei UI&quot;;
+color: rgb(255, 255, 255);
+border-radius:15px;</string>
+       </property>
        <property name="text">
         <string>Ajouter</string>
        </property>
@@ -176,16 +186,6 @@
         </rect>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEdit_Function">
-       <property name="geometry">
-        <rect>
-         <x>100</x>
-         <y>280</y>
-         <width>113</width>
-         <height>22</height>
-        </rect>
-       </property>
-      </widget>
       <widget class="QLineEdit" name="lineEdit_Email">
        <property name="geometry">
         <rect>
@@ -225,19 +225,78 @@
          <height>28</height>
         </rect>
        </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(209, 203, 255);
+font: 8pt &quot;Microsoft JhengHei UI&quot;;
+color: rgb(255, 255, 255);
+border-radius:15px;</string>
+       </property>
        <property name="text">
         <string>Modifier</string>
        </property>
+      </widget>
+      <widget class="QComboBox" name="comboBox_Function">
+       <property name="geometry">
+        <rect>
+         <x>102</x>
+         <y>280</y>
+         <width>111</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <item>
+        <property name="text">
+         <string>Juge</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Avocat</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Conseiller</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Responsable ressource humaines</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Responsable des affaires juridiques</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Responsable d'archives</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Responsable des citoyens</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Responsable des salles</string>
+        </property>
+       </item>
       </widget>
      </widget>
      <widget class="QGroupBox" name="suppression">
       <property name="geometry">
        <rect>
-        <x>440</x>
-        <y>380</y>
+        <x>510</x>
+        <y>400</y>
         <width>281</width>
         <height>151</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(210, 253, 255);</string>
       </property>
       <property name="title">
        <string>Suppression</string>
@@ -274,6 +333,12 @@
          <height>28</height>
         </rect>
        </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(209, 203, 255);
+font: 8pt &quot;Microsoft JhengHei UI&quot;;
+color: rgb(255, 255, 255);
+border-radius:15px;</string>
+       </property>
        <property name="text">
         <string>Supprimer</string>
        </property>
@@ -284,9 +349,12 @@
        <rect>
         <x>450</x>
         <y>20</y>
-        <width>461</width>
-        <height>321</height>
+        <width>581</width>
+        <height>341</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:rgb(210, 253, 255);</string>
       </property>
       <property name="title">
        <string>Affichage</string>
@@ -294,18 +362,97 @@
       <widget class="QTableView" name="tab_employee">
        <property name="geometry">
         <rect>
-         <x>80</x>
+         <x>10</x>
          <y>20</y>
-         <width>311</width>
-         <height>281</height>
+         <width>561</width>
+         <height>311</height>
         </rect>
        </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:rgb(255,253,255);</string>
+       </property>
       </widget>
+     </widget>
+     <widget class="QPushButton" name="pb_notifier">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>480</y>
+        <width>121</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(209, 203, 255);
+font: 8pt &quot;Microsoft JhengHei UI&quot;;
+color: rgb(255, 255, 255);
+border-radius:15px;</string>
+      </property>
+      <property name="text">
+       <string>Notifier Employe</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pb_statistique">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>480</y>
+        <width>93</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(209, 203, 255);
+font: 8pt &quot;Microsoft JhengHei UI&quot;;
+color: rgb(255, 255, 255);
+border-radius:15px;</string>
+      </property>
+      <property name="text">
+       <string>statistique</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pb_generatepdf">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>480</y>
+        <width>93</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(209, 203, 255);
+font: 8pt &quot;Microsoft JhengHei UI&quot;;
+color: rgb(255, 255, 255);
+border-radius:15px;</string>
+      </property>
+      <property name="text">
+       <string>Generer pdf</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="calendrier">
+      <property name="geometry">
+       <rect>
+        <x>350</x>
+        <y>480</y>
+        <width>101</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(209, 203, 255);
+font: 8pt &quot;Microsoft JhengHei UI&quot;;
+color: rgb(255, 255, 255);
+border-radius:15px;</string>
+      </property>
+      <property name="text">
+       <string>calendrier</string>
+      </property>
      </widget>
     </widget>
     <widget class="QWidget" name="tri">
      <attribute name="title">
-      <string>Chercher Employer</string>
+      <string>Chercher Tri Employee</string>
      </attribute>
      <widget class="QGroupBox" name="recherche_tri">
       <property name="geometry">
@@ -316,17 +463,26 @@
         <height>501</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(210, 253, 255);</string>
+      </property>
       <property name="title">
        <string>Recherche</string>
       </property>
       <widget class="QPushButton" name="pb_chercher">
        <property name="geometry">
         <rect>
-         <x>520</x>
+         <x>500</x>
          <y>440</y>
          <width>93</width>
          <height>28</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(209, 203, 255);
+font: 8pt &quot;Microsoft JhengHei UI&quot;;
+color: rgb(255, 255, 255);
+border-radius:15px;</string>
        </property>
        <property name="text">
         <string>Rechercher</string>
@@ -335,18 +491,21 @@
       <widget class="QTableView" name="tab_employee_2">
        <property name="geometry">
         <rect>
-         <x>50</x>
-         <y>110</y>
-         <width>441</width>
-         <height>311</height>
+         <x>30</x>
+         <y>70</y>
+         <width>531</width>
+         <height>351</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 253, 255);</string>
        </property>
       </widget>
       <widget class="QLineEdit" name="lineEdit_rechercher">
        <property name="geometry">
         <rect>
-         <x>430</x>
-         <y>50</y>
+         <x>180</x>
+         <y>30</y>
          <width>113</width>
          <height>22</height>
         </rect>
@@ -364,47 +523,14 @@
          <height>28</height>
         </rect>
        </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(209, 203, 255);
+font: 8pt &quot;Microsoft JhengHei UI&quot;;
+color: rgb(255, 255, 255);
+border-radius:15px;</string>
+       </property>
        <property name="text">
         <string>Tri</string>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="tri_CIN">
-       <property name="geometry">
-        <rect>
-         <x>20</x>
-         <y>70</y>
-         <width>113</width>
-         <height>22</height>
-        </rect>
-       </property>
-       <property name="placeholderText">
-        <string>CIN</string>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="tri_nom">
-       <property name="geometry">
-        <rect>
-         <x>140</x>
-         <y>70</y>
-         <width>113</width>
-         <height>22</height>
-        </rect>
-       </property>
-       <property name="placeholderText">
-        <string>Nom</string>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="tri_prenom">
-       <property name="geometry">
-        <rect>
-         <x>260</x>
-         <y>70</y>
-         <width>113</width>
-         <height>22</height>
-        </rect>
-       </property>
-       <property name="placeholderText">
-        <string>Prenom</string>
        </property>
       </widget>
       <widget class="QLabel" name="tri_2">
@@ -420,16 +546,364 @@
         <string>Tri par :</string>
        </property>
       </widget>
+      <widget class="QComboBox" name="comboBox_tri">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>30</y>
+         <width>73</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="currentText">
+        <string>CIN</string>
+       </property>
+       <item>
+        <property name="text">
+         <string>CIN</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Nom</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Prenom</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Function</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QPushButton" name="pb_generatepdf_2">
+       <property name="geometry">
+        <rect>
+         <x>290</x>
+         <y>440</y>
+         <width>93</width>
+         <height>28</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(209, 203, 255);
+font: 8pt &quot;Microsoft JhengHei UI&quot;;
+color: rgb(255, 255, 255);
+border-radius:15px;</string>
+       </property>
+       <property name="text">
+        <string>Generer pdf</string>
+       </property>
+      </widget>
      </widget>
     </widget>
-    <widget class="QWidget" name="tab_3">
+    <widget class="QWidget" name="statistique">
      <attribute name="title">
-      <string>agenda</string>
+      <string>Statistique Notification</string>
      </attribute>
+     <widget class="QGroupBox" name="Statistique">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>70</y>
+        <width>561</width>
+        <height>311</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(210, 253, 255);</string>
+      </property>
+      <property name="title">
+       <string>Statistique</string>
+      </property>
+      <widget class="QWidget" name="layoutWidget_2">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>20</y>
+         <width>531</width>
+         <height>241</height>
+        </rect>
+       </property>
+       <layout class="QGridLayout" name="gridLayout_9">
+        <item row="0" column="0">
+         <widget class="QLabel" name="function">
+          <property name="text">
+           <string>Function:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QComboBox" name="comboBoxStat">
+          <item>
+           <property name="text">
+            <string>Juge</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Avocat</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Conseiller</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Responsable ressource humaines</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Responsable des affaires juridiques</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Responsable des salles</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Responsable d'archives </string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Responsable des citoyens</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="nombreEmploye">
+          <property name="text">
+           <string>Nombre Employes</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QProgressBar" name="progressBar">
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(210, 253, 255);</string>
+          </property>
+          <property name="value">
+           <number>24</number>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QPushButton" name="pb_statistique2">
+       <property name="geometry">
+        <rect>
+         <x>450</x>
+         <y>270</y>
+         <width>93</width>
+         <height>28</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(209, 203, 255);
+font: 8pt &quot;Microsoft JhengHei UI&quot;;
+color: rgb(255, 255, 255);
+border-radius:15px;</string>
+       </property>
+       <property name="text">
+        <string>Compter</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="Notification">
+      <property name="geometry">
+       <rect>
+        <x>630</x>
+        <y>160</y>
+        <width>351</width>
+        <height>331</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(210, 253, 255);
+</string>
+      </property>
+      <property name="title">
+       <string>Notification</string>
+      </property>
+      <widget class="QLineEdit" name="lineEdit_Nom_Notif">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>130</y>
+         <width>113</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_Prenom_Notif">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>170</y>
+         <width>113</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_9">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>90</y>
+         <width>56</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>CIN</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_10">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>130</y>
+         <width>56</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Nom</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_11">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>180</y>
+         <width>56</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Prenom</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pb_notifier_2">
+       <property name="geometry">
+        <rect>
+         <x>220</x>
+         <y>270</y>
+         <width>93</width>
+         <height>28</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(209, 203, 255);
+font: 8pt &quot;Microsoft JhengHei UI&quot;;
+color: rgb(255, 255, 255);
+border-radius:15px;</string>
+       </property>
+       <property name="text">
+        <string>Notifier</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_12">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>220</y>
+         <width>56</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Function</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_CIN_Notif">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>90</y>
+         <width>113</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="comboBox_Function_Notif">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>210</y>
+         <width>111</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <item>
+        <property name="text">
+         <string>Juge</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Avocat</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Conseiller</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Responsable ressource humaines</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Responsable des affaires juridiques</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Responsable d'archives</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Responsable des citoyens</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Responsable des salles</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QLabel" name="label_13">
+       <property name="geometry">
+        <rect>
+         <x>15</x>
+         <y>50</y>
+         <width>271</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Inserer les informations d'employe a notifié :</string>
+       </property>
+      </widget>
+     </widget>
     </widget>
-    <widget class="QWidget" name="tab_4">
+    <widget class="QWidget" name="agenda">
      <attribute name="title">
-      <string>Page</string>
+      <string>Agenda</string>
      </attribute>
     </widget>
    </widget>
@@ -443,12 +917,6 @@
      <height>26</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuGestion_des_employ_es">
-    <property name="title">
-     <string>Gestion des employées</string>
-    </property>
-   </widget>
-   <addaction name="menuGestion_des_employ_es"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">

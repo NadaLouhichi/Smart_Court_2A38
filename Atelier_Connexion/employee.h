@@ -30,6 +30,16 @@ public:
         bool modifier_Employee();
 
         QSqlQueryModel* rechercher(QString);
+        bool testAJ(QString a);
+        bool testNP(QString,QString);
+        QSqlQueryModel* trier(QString);
+
+
+
+        int statistique_E(QString Function);
+        int statistique_ET();
+
+        bool notification();
 };
 
 #endif // EMPLOYEE_H

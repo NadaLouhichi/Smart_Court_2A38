@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/notif">
+        <file>notif.png</file>
+    </qresource>
+    <qresource prefix="/event">
+        <file>eventindicator.png</file>
+    </qresource>
+    <qresource prefix="/sound">
+        <file>sound.wav</file>
+    </qresource>
+</RCC>
