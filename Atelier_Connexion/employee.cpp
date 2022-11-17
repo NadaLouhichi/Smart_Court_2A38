@@ -73,7 +73,7 @@ query.prepare("DELETE FROM GS_EMPLOYE WHERE CIN=:cin ");
 QSqlQueryModel* Employee::afficher()
 {
     QSqlQueryModel* model=new QSqlQueryModel();
-          model->setQuery("SELECT* FROM GS_SALLES");
+          model->setQuery("SELECT* FROM GS_EMPLOYE");
           model->setHeaderData(0, Qt::Horizontal, QObject::tr("CIN"));
           model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));
           model->setHeaderData(2, Qt::Horizontal, QObject::tr("Prenom"));

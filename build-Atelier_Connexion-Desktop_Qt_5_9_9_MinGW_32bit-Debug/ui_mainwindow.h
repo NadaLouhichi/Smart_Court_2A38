@@ -366,7 +366,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        gestion_employe->setCurrentIndex(2);
+        gestion_employe->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
