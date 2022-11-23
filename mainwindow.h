@@ -59,13 +59,14 @@ private slots:
 
     void on_Sendmail_3_clicked();
 
-    void on_pushButton_clicked();
+    //void on_pushButton_clicked();
 
 
 
-    void on_pushBQ_2_clicked();
 
     void on_pb_statistique_clicked();
+
+    void on_pushBQ_2_clicked();
 
 private:
     Ui::MainWindow *ui;

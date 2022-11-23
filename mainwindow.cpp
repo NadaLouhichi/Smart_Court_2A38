@@ -82,8 +82,8 @@ MainWindow::MainWindow(QWidget *parent) :
      connect(ui->sendBtn, SIGNAL(clicked()),this, SLOT(sendMail()));
      connect(ui->exitBtn, SIGNAL(clicked()),this, SLOT(close()));
      connect(ui->browseBtn, SIGNAL(clicked()), this, SLOT(browse()));
-     ui->tableView_2->setModel(r.afficherR());
-     ui->tableView_2->horizontalHeader()->setStretchLastSection(true);
+    // ui->tableView_2->setModel(r.afficherR());
+     //ui->tableView_2->horizontalHeader()->setStretchLastSection(true);
 
      QDate date = QDate::currentDate();
         ui->dateEdit->setDate(date);
@@ -336,15 +336,40 @@ void MainWindow::on_Sendmail_3_clicked()
 
 }
 //QrCode
-void MainWindow::on_pushButton_clicked()
-{
 
+
+//Affichage reservation
+//void MainWindow::on_pushBQ_2_clicked()
+/*{
+    reservation c;
+    //affichage simple
+    ui->tableView_2->setModel(c.afficherR());
+}
+
+*/
+void MainWindow::on_pb_statistique_clicked()
+{
+    ui->progressBar->setValue(0);
+int SA=0;
+/*int ids=ui->lineEdit_ids->text().toInt();
+QString IDR_string = QString::number(ids);
+*/
+int  a=r.statistique_RS(ui->comboBox_4->currentText());
+ int t=r.statistique_RT();
+
+ SA=(a*100)/t;
+
+ ui->progressBar->setValue(SA);
+}
+
+void MainWindow::on_pushBQ_2_clicked()
+{
 
     if(ui->tableView->currentIndex().row()==-1)
 
                                       QMessageBox::information(nullptr, QObject::tr("Suppression"),
 
-                                                               QObject::tr("Veuillez Choisir une reference du Tableau.\n"
+                                                               QObject::tr("Veuillez Choisir une ids du Tableau.\n"
 
                                                                            "Click Ok to exit."), QMessageBox::Ok);
 
@@ -352,9 +377,10 @@ void MainWindow::on_pushButton_clicked()
 
                                   {
 
-                                       int idr=ui->tableView->model()->data(ui->tableView->model()->index(ui->tableView->currentIndex().row(),0)).toInt();
+                                       int IDS=ui->tableView->model()->data(ui->tableView->model()->index(ui->tableView->currentIndex().row(),5)).toInt();
 
-                                       const qrcodegen::QrCode qr = qrcodegen::QrCode::encodeText(std::to_string(idr).c_str(), qrcodegen::QrCode::Ecc::LOW);
+                                       const qrcodegen::QrCode qr = qrcodegen::QrCode::encodeText(std::to_string(IDS).c_str(), qrcodegen::QrCode::Ecc::LOW);
+
 
                                        std::ofstream myfile;
 
@@ -372,34 +398,8 @@ void MainWindow::on_pushButton_clicked()
 
                                           svgRenderer.render(&pixPainter);
 
-                                       ui->qr_code_2->setPixmap(pix);
+                                       ui->label_8->setPixmap(pix);
 
                                   }
 
-
-
-}
-
-//Affichage reservation
-void MainWindow::on_pushBQ_2_clicked()
-{
-    reservation c;
-    //affichage simple
-    ui->tableView_2->setModel(c.afficherR());
-}
-
-
-void MainWindow::on_pb_statistique_clicked()
-{
-    ui->progressBar->setValue(0);
-int SA=0;
-/*int ids=ui->lineEdit_ids->text().toInt();
-QString IDR_string = QString::number(ids);
-*/
-int  a=r.statistique_RS(ui->comboBox_4->currentText());
- int t=r.statistique_RT();
-
- SA=(a*100)/t;
-
- ui->progressBar->setValue(SA);
 }

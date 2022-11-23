@@ -66,6 +66,9 @@ QSqlQuery qry;
     qry.bindValue(":EMAIL",r.getemail());
     qry.bindValue(":NUMTEL",r.getnumtel());
     qry.bindValue(":IDSR",r.getidsr());
+
+
+
     if(qry.exec())
     {
         QMessageBox::information(nullptr, QObject::tr("sql query successful"),
@@ -86,7 +89,7 @@ QSqlQueryModel * reservation::afficherR()
 
 
     QSqlQueryModel * model=new QSqlQueryModel();
-          model->setQuery("SELECT (IDR,DATER,DUREE,NPR,ROLE,EMAIL,NUMTEl,IDS,NUMS,ETAGE)  FROM GS_RESERVATIONS NATURAL JOIN GS_SALLES WHERE IDSR=IDS ");
+          model->setQuery("SELECT IDR,DATER,DUREE,NPR,ROLE,EMAIL,NUMTEl,IDS,NUMS,ETAGE  FROM GS_RESERVATIONS NATURAL JOIN GS_SALLES WHERE IDSR=IDS ");
           model->setHeaderData(0, Qt::Horizontal, QObject::tr("IDR"));
           model->setHeaderData(1, Qt::Horizontal, QObject::tr("DATE"));
           model->setHeaderData(2, Qt::Horizontal, QObject::tr("DUREE"));
@@ -95,7 +98,6 @@ QSqlQueryModel * reservation::afficherR()
           model->setHeaderData(5, Qt::Horizontal, QObject::tr("EMAIL"));
           model->setHeaderData(6, Qt::Horizontal, QObject::tr("NUMTEL"));
           model->setHeaderData(7, Qt::Horizontal, QObject::tr("IDSR"));
-
 
     return model;
 
