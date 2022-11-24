@@ -50,11 +50,11 @@ QSqlQueryModel* historique::afficherh()
    {
      QSqlQueryModel* model=new QSqlQueryModel();
       model->setQuery("SELECT* FROM HISTORIQUE");
-      model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID_P"));
-      model->setHeaderData(1, Qt::Horizontal, QObject::tr("ID_S"));
-      model->setHeaderData(2, Qt::Horizontal, QObject::tr("NOM_P"));
-    model->setHeaderData(3, Qt::Horizontal, QObject::tr("ACTEUR"));
-model->setHeaderData(4, Qt::Horizontal, QObject::tr("TYPER"));
+//      model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID_P"));
+//      model->setHeaderData(1, Qt::Horizontal, QObject::tr("ID_S"));
+//      model->setHeaderData(2, Qt::Horizontal, QObject::tr("NOM_P"));
+//    model->setHeaderData(3, Qt::Horizontal, QObject::tr("ACTEUR"));
+//model->setHeaderData(4, Qt::Horizontal, QObject::tr("TYPER"));
 return  model;
  }
 
