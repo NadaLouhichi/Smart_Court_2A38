@@ -377,7 +377,7 @@ void MainWindow::on_pushBQ_2_clicked()
 
                                   {
 
-                                       int IDS=ui->tableView->model()->data(ui->tableView->model()->index(ui->tableView->currentIndex().row(),5)).toInt();
+                                       int IDS=ui->tableView->model()->data(ui->tableView->model()->index(ui->tableView->currentIndex().row(),2)).toInt();
 
                                        const qrcodegen::QrCode qr = qrcodegen::QrCode::encodeText(std::to_string(IDS).c_str(), qrcodegen::QrCode::Ecc::LOW);
 
