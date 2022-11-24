@@ -7,6 +7,7 @@
 QT       += core gui sql
 QT       += core gui charts
 QT       += svg
+QT       +=core gui sql printsupport charts widgets axcontainer
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -32,7 +33,6 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     connection.cpp \
-    msg.cpp \
     qrcode.cpp \
     qrcodegenerated.cpp \
     qrcodegeneratworker.cpp \
@@ -43,16 +43,15 @@ HEADERS += \
     dialog.h \
         mainwindow.h \
     connection.h \
-    msg.h \
     qrcode.h \
     qrcodegeneratworker.h \
-    stat.h
+    stat.h \
+    webaxwidget.h
 
 FORMS += \
         dialog.ui \
         interface.ui \
         mainwindow.ui \
-        msg.ui \
         stat.ui
 
 # Default rules for deployment.

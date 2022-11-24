@@ -1,5 +1,5 @@
-#include "mainwindow.h"
-#include "ui_mainwindow.h"
+#include "dialog.h"
+#include "ui_dialog.h"
 #include "avocat.h"
 #include"mainwindow.h"
 #include <QMessageBox>
@@ -42,29 +42,38 @@
 #include<QtCharts/QHorizontalStackedBarSeries>
 #include<QtCharts/QLineSeries>
 #include<QtCharts/QCategoryAxis>
-#include"msg.h"
 #include"dialog.h"
 #include"qabstractanimation.h"
 #include"qrcode.h"
-MainWindow::MainWindow(QWidget *parent) :
-    QMainWindow(parent),
-    ui(new Ui::MainWindow)
-{
+#include<QtDebug>
+Dialog::Dialog(QWidget *parent) :
+    QDialog(parent),
+    ui(new Ui::Dialog)
+{ avocat A;
     ui->setupUi(this);
     ui->le_numa->setValidator(new QIntValidator(0, 9999999, this));
     ui->tab_aff->setModel(A.afficher());
+    //maps
+    QSettings settings(QSettings::IniFormat, QSettings::UserScope,
+                       QCoreApplication::organizationName(), QCoreApplication::applicationName());
+
+    ui->WebBrowser->dynamicCall("Navigate(const QString&)", "https://www.google.com/maps/place/ESPRIT/@36.9016729,10.1713215,15z");
+
 
 }
 
-MainWindow::~MainWindow()
-{
+    Dialog::~Dialog()
+    {
     delete ui;
-}
+
+    }
 
 
 
 
-void MainWindow::on_pb_ajouter_clicked()
+
+
+void Dialog::on_pb_ajouter_clicked()
 {
     int cin=ui->le_numa->text().toInt();
     QString nom=ui->le_nom->text();
@@ -93,26 +102,46 @@ void MainWindow::on_pb_ajouter_clicked()
       ui->tab_aff->setModel(A.afficher());
 }
 
-void MainWindow::on_pb_supprimer_clicked()
-{
-     avocat A1; A1.setcin(ui->le_numa_sup->text().toInt());
-     A1.setphone(ui->le_numa_sup->text().toInt());
-     bool test=A1.supprimer(A1.getcin());
-     QMessageBox msgBox;
-     if(test)
-     {
 
-                 msgBox.setText("suppression ok");
-                 ui->tab_aff->setModel(A.afficher());
-     }
-             else
-         msgBox.setText("suppression not ok");
-     msgBox.exec();
+
+
+
+
+
+
+
+
+
+
+
+void MainWindow::on_pushButton_3_clicked()
+{
+Dialog a;
+a.setModal(true);
+a.exec();
+
 }
 
 
 
-void MainWindow::on_pb_modifier_clicked()
+void Dialog::on_pb_supprimer_clicked()
+{avocat A;
+    avocat A1; A1.setcin(ui->le_numa_sup->text().toInt());
+    A1.setphone(ui->le_numa_sup->text().toInt());
+    bool test=A1.supprimer(A1.getcin());
+    QMessageBox msgBox;
+    if(test)
+    {
+
+                msgBox.setText("suppression ok");
+                ui->tab_aff->setModel(A.afficher());
+    }
+            else
+        msgBox.setText("suppression not ok");
+    msgBox.exec();
+}
+
+void Dialog::on_pb_modifier_clicked()
 {
     int cin=ui->le_id_2->text().toInt();
                QString nom=ui->le_nom_2->text();
@@ -144,26 +173,25 @@ void MainWindow::on_pb_modifier_clicked()
 
 }
 
-void MainWindow::on_pb_trienom_clicked()
+void Dialog::on_pb_trienom_clicked()
 {
-    ui->tab_aff->setModel(A.afficher_avocat_trie_Nom());
-
+    avocat A;
+     ui->tab_aff->setModel(A.afficher_avocat_trie_Nom());
 }
 
-void MainWindow::on_pb_trieprenom_clicked()
-{
-  ui->tab_aff->setModel(A.afficher_avocat_trie_prenom());
+void Dialog::on_pb_trieprenom_clicked()
+{ avocat A;
+    ui->tab_aff->setModel(A.afficher_avocat_trie_prenom());
 }
 
-void MainWindow::on_pb_chercher_clicked()
+void Dialog::on_pb_chercher_clicked()
 {
-   avocat A;
-       QString Re =ui->le_rech->text();
-       ui->tab_aff->setModel(A.chercher_avocat(Re));
+    avocat A;
+        QString Re =ui->le_rech->text();
+        ui->tab_aff->setModel(A.chercher_avocat(Re));
 }
 
-
-void MainWindow::on_pushButton_clicked()
+void Dialog::on_pushButton_3_clicked()
 {
     QPdfWriter fichier_pdf("C:\\dabbebi\\listeequipementList.pdf");
 
@@ -204,33 +232,9 @@ void MainWindow::on_pushButton_clicked()
 }
 
 
-void MainWindow::on_pushButton_2_clicked()
-{
-    int res;
-            statistiques w(this);
-            w.setWindowTitle("Statistiques des avocat");
 
-            res = w.exec();
-            qDebug() << res;
-            if (res == QDialog::Rejected)
-              return;
-}
 
-void MainWindow::on_pushButton_3_clicked()
-{
-Dialog a;
-a.setModal(true);
-a.exec();
-
-}
-void MainWindow::on_pb_msg_clicked()
-{
-    msg m ;
-    m.setModal(true);
-    m.exec();
-}
-
-void MainWindow::on_qrcode_clicked()
+void Dialog::on_qrcode_clicked()
 {
     if(ui->tab_aff->currentIndex().row()==-1)
 
@@ -268,4 +272,19 @@ void MainWindow::on_qrcode_clicked()
 
                                   }
 
+
 }
+
+void Dialog::on_pushButton_2_clicked()
+{
+    int res;
+            statistiques w(this);
+            w.setWindowTitle("Statistiques des avocat");
+
+            res = w.exec();
+            qDebug() << res;
+            if (res == QDialog::Rejected)
+              return;
+}
+
+
