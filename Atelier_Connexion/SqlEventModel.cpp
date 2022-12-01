@@ -2,6 +2,9 @@
 #include "connection.h"
 #include "event.h"
 #include <QFileInfo>
+#include "QSqlQuery"
+#include <QObject>
+#include "qsqlquery.h"
 
 //The C++ class, SqlEventModel, inherits SqlQueryModel to create a database with dummy events for certain dates.
 SqlEventModel::SqlEventModel()
@@ -16,14 +19,17 @@ QList<QObject*> SqlEventModel::eventsForDate(const QDate &date)
     QSqlQuery query;
 
 
-    query.prepare("SELECT * FROM GS_AFFAIRESJ where DATEA like :date");
+    query.prepare("SELECT DATEA,TYPE,INFORMATION FROM GS_AFFAIRESJ where DATEA like :date");
     query.bindValue(":date", date);
     query.exec();
 
     QList<QObject*> events;
     while (query.next()) {
         Event *event = new Event(this);
-        //event->setName(query.value("nom").toString());
+        //Event *event1 = new Event(this);
+        event->setName(query.value("TYPE,INFORMATION").toString());
+        event->setName(query.value("INFORMATION").toString());
+        event->setinformation(query.value("INFORMATION").toString());
 
         QDateTime startDate;
         startDate.setDate(query.value("DATEA").toDate());
@@ -38,8 +44,27 @@ QList<QObject*> SqlEventModel::eventsForDate(const QDate &date)
         event->setEndDate(endDate);
 
         events.append(event);
+          //events.append(event1);
     }
 
     return events;
 
+}
+/*
+    Defines a helper function to open a connection to an
+    in-memory SQLITE database and to create a test table.
+*/
+void SqlEventModel::createConnection()
+{
+    Connection c;
+     bool test=c.createconnect();
+    if ((!test)) {
+        qFatal("Cannot open database");
+        return;
+    }
+
+    QSqlQuery query;
+    // We store the time as seconds because it's easier to query.
+    query.exec("SELECT* from GS_AFFAIRESJ");
+    return;
 }

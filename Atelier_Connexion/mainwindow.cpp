@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "employee.h"
+#include "arduino.h"
 #include "QMessageBox"
 #include <QTextDocument>
 #include <QPrinter>
@@ -8,7 +9,6 @@
 #include <QSortFilterProxyModel>
 #include <QTextTableFormat>
 #include <QStandardItemModel>
-#include <QDialog>
 #include <QFileDialog>
 #include <QDialog>
 #include <QTextStream>
@@ -16,6 +16,7 @@
 #include <qdatastream.h>
 #include <QDate>
 #include "secformdialog.h"
+#include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -25,7 +26,20 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->gestion_employe->setCurrentIndex(0);
     ui->lineEdit_CIN->setValidator(new QIntValidator(0, 99999999, this));
     ui->tab_employee->setModel(E.afficher());
-    QDate date = QDate::currentDate();
+    //QDate date = QDate::currentDate();
+
+    int ret=A.connect_arduino(); // lancer la connexion à arduino
+    switch(ret){
+    case(0):qDebug()<< "arduino is available and connected to : "<< A.getarduino_port_name();
+        break;
+    case(1):qDebug() << "arduino is available but not connected to :" <<A.getarduino_port_name();
+       break;
+    case(-1):qDebug() << "arduino is not available";
+    }
+     QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_label())); // permet de lancer
+     //le slot update_label suite à la reception du signal readyRead (reception des données).
+   // end arduino
+
 }
 
 MainWindow::~MainWindow()
@@ -310,3 +324,42 @@ void MainWindow::on_calendrier_clicked()
     secDialog= new SECFORMDialog(this);
     secDialog->show();
 }
+
+//ON
+void MainWindow::on_pbarduinoT_ON_clicked()
+{
+    A.write_to_arduino("1");
+    int CIN=ui->lineEdit_ID->text().toInt();
+    QString id_string=QString::number(CIN);
+    A.write_to_arduino(id_string.toStdString().c_str());
+    QString Function=ui->comboBox_Function_2->currentText();
+    E.notificationA(Function);
+    QMessageBox::warning(this,"Warning","Attention il ya un fuite de GAZ detecte !! ");
+}
+//OFF
+void MainWindow::on_pbarduinoT_off_clicked()
+{
+    int CIN=ui->lineEdit_ID->text().toInt();
+    QString id_string=QString::number(CIN);
+    A.write_to_arduino(id_string.toStdString().c_str());
+    QString Function=ui->comboBox_Function_2->currentText();
+    A.write_to_arduino("0");
+
+}
+void MainWindow::update_label()
+{
+     data =A.read_from_arduino();
+     QString DataAsString = QString(data);
+         qDebug()<< "this is data:"<< data;
+    if (data =="ON")
+    {  //ui->label_45->setText("alarme activée");
+        ui->label_46->setText("alarm activée");
+         QMessageBox::warning(this,"Warning","Attention il ya un fuite de GAZ detecte !! ");
+         //E.notificationA();
+    }
+    else if (data =="OFF")
+    {  // ui->label_45->setText("alarme désactivée");
+        ui->label_46->setText("alarme désactivée");
+    }
+}
+

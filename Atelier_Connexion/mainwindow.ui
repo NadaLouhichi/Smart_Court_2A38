@@ -18,13 +18,20 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>40</y>
+      <y>30</y>
       <width>1071</width>
       <height>631</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(190, 213, 255);
+border-color: rgb(190, 213, 255);
+border-top-color: rgb(190, 213, 255);
+border-left-color: rgb(190, 213, 255);
+selection-color: rgb(170, 170, 255);</string>
+    </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="tab_cruds">
      <attribute name="title">
@@ -901,10 +908,153 @@ border-radius:15px;</string>
       </widget>
      </widget>
     </widget>
-    <widget class="QWidget" name="agenda">
+    <widget class="QWidget" name="Detectiongaz">
      <attribute name="title">
-      <string>Agenda</string>
+      <string>Detection du gaz</string>
      </attribute>
+     <widget class="QGroupBox" name="groupBox">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>80</y>
+        <width>891</width>
+        <height>471</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(210, 253, 255);
+</string>
+      </property>
+      <property name="title">
+       <string>GroupBox</string>
+      </property>
+      <widget class="QPushButton" name="pbarduinoT_off">
+       <property name="geometry">
+        <rect>
+         <x>320</x>
+         <y>152</y>
+         <width>111</width>
+         <height>121</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="text">
+        <string>Desactiver alarme</string>
+       </property>
+      </widget>
+      <widget class="QWidget" name="layoutWidget_8">
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>280</y>
+         <width>251</width>
+         <height>18</height>
+        </rect>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_5">
+        <item>
+         <widget class="QLabel" name="label_45">
+          <property name="text">
+           <string>Etat:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_46">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QPushButton" name="pbarduinoT_ON">
+       <property name="geometry">
+        <rect>
+         <x>200</x>
+         <y>152</y>
+         <width>111</width>
+         <height>121</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Activer alarme</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_ID">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>50</y>
+         <width>121</width>
+         <height>16</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_14">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>50</y>
+         <width>41</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>CIN </string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="comboBox_Function_2">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>80</y>
+         <width>121</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <item>
+        <property name="text">
+         <string>Responsable ressource humaines</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Responsable des affaires juridiques</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Responsable d'archives</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Responsable des citoyens</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Responsable des salles</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QLabel" name="label_15">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>80</y>
+         <width>56</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Function</string>
+       </property>
+      </widget>
+     </widget>
     </widget>
    </widget>
   </widget>

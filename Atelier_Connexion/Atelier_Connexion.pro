@@ -3,12 +3,13 @@
 # Project created by QtCreator 2018-10-26T21:45:23
 #
 #-------------------------------------------------
-QT       += core gui sql axcontainer widgets network qml  quickwidgets quick opengl
+QT += core gui sql axcontainer widgets network qml  quickwidgets quick opengl
 QT += qml quick sql
-
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+QT += serialport
 QT += printsupport
 QT += multimedia
+
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = Atelier_Connexion
 TEMPLATE = app
 
@@ -29,6 +30,7 @@ include(src/src.pri)
 include(shared/shared.pri)
 
 SOURCES += \
+    arduino.cpp \
     employee.cpp \
     event.cpp \
         main.cpp \
@@ -38,6 +40,7 @@ SOURCES += \
     sqleventmodel.cpp
 
 HEADERS += \
+    arduino.h \
     employee.h \
     event.h \
         mainwindow.h \
@@ -62,10 +65,11 @@ OTHER_FILES +=
     qml/main.qml
 
 RESOURCES += \
+    ../rsc.qrc \
     qml/qml.qrc \
-    rsc/rsc.qrc \
     rsc/eventindicator.png \
     rsc/notif.png \
+    rsc/rsc.qrc \
     rsc/sound.wav
 
 target.path = $$[QT_INSTALL_EXAMPLES]/quickcontrols/controls/calendar

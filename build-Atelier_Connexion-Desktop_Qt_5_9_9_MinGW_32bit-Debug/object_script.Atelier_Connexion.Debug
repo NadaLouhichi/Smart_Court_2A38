@@ -1,4 +1,5 @@
 INPUT(
+./debug\arduino.o
 ./debug\employee.o
 ./debug\event.o
 ./debug\main.o
@@ -6,8 +7,8 @@ INPUT(
 ./debug\connection.o
 ./debug\secformdialog.o
 ./debug\sqleventmodel.o
-./debug\qrc_qml.o
 ./debug\qrc_rsc.o
+./debug\qrc_qml.o
 ./debug\qrc_qmake_qmake_immediate.o
 ./debug\moc_event.o
 ./debug\moc_mainwindow.o

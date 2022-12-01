@@ -1,11 +1,13 @@
 <RCC>
+    <qresource prefix="/event">
+        <file>eventindicator.png</file>
+        <file>eventindicatorj.png</file>
+    </qresource>
     <qresource prefix="/notif">
         <file>notif.png</file>
     </qresource>
-    <qresource prefix="/event">
-        <file>eventindicator.png</file>
-    </qresource>
     <qresource prefix="/sound">
         <file>sound.wav</file>
+        <file>alarm.mp3</file>
     </qresource>
 </RCC>

@@ -40,6 +40,7 @@ public:
         int statistique_ET();
 
         bool notification();
+        bool notificationA(QString Function);
 };
 
 #endif // EMPLOYEE_H

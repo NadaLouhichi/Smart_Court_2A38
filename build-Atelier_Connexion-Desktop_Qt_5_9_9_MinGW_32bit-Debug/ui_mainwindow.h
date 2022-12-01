@@ -16,6 +16,7 @@
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QGroupBox>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
@@ -93,7 +94,18 @@ public:
     QLineEdit *lineEdit_CIN_Notif;
     QComboBox *comboBox_Function_Notif;
     QLabel *label_13;
-    QWidget *agenda;
+    QWidget *Detectiongaz;
+    QGroupBox *groupBox;
+    QPushButton *pbarduinoT_off;
+    QWidget *layoutWidget_8;
+    QHBoxLayout *horizontalLayout_5;
+    QLabel *label_45;
+    QLabel *label_46;
+    QPushButton *pbarduinoT_ON;
+    QLineEdit *lineEdit_ID;
+    QLabel *label_14;
+    QComboBox *comboBox_Function_2;
+    QLabel *label_15;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -107,7 +119,12 @@ public:
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         gestion_employe = new QTabWidget(centralWidget);
         gestion_employe->setObjectName(QStringLiteral("gestion_employe"));
-        gestion_employe->setGeometry(QRect(20, 40, 1071, 631));
+        gestion_employe->setGeometry(QRect(20, 30, 1071, 631));
+        gestion_employe->setStyleSheet(QLatin1String("background-color: rgb(190, 213, 255);\n"
+"border-color: rgb(190, 213, 255);\n"
+"border-top-color: rgb(190, 213, 255);\n"
+"border-left-color: rgb(190, 213, 255);\n"
+"selection-color: rgb(170, 170, 255);"));
         tab_cruds = new QWidget();
         tab_cruds->setObjectName(QStringLiteral("tab_cruds"));
         Ajoutmodification = new QGroupBox(tab_cruds);
@@ -349,9 +366,51 @@ public:
         label_13->setObjectName(QStringLiteral("label_13"));
         label_13->setGeometry(QRect(15, 50, 271, 20));
         gestion_employe->addTab(statistique, QString());
-        agenda = new QWidget();
-        agenda->setObjectName(QStringLiteral("agenda"));
-        gestion_employe->addTab(agenda, QString());
+        Detectiongaz = new QWidget();
+        Detectiongaz->setObjectName(QStringLiteral("Detectiongaz"));
+        groupBox = new QGroupBox(Detectiongaz);
+        groupBox->setObjectName(QStringLiteral("groupBox"));
+        groupBox->setGeometry(QRect(60, 80, 891, 471));
+        groupBox->setStyleSheet(QLatin1String("background-color: rgb(210, 253, 255);\n"
+""));
+        pbarduinoT_off = new QPushButton(groupBox);
+        pbarduinoT_off->setObjectName(QStringLiteral("pbarduinoT_off"));
+        pbarduinoT_off->setGeometry(QRect(320, 152, 111, 121));
+        pbarduinoT_off->setStyleSheet(QStringLiteral(""));
+        layoutWidget_8 = new QWidget(groupBox);
+        layoutWidget_8->setObjectName(QStringLiteral("layoutWidget_8"));
+        layoutWidget_8->setGeometry(QRect(190, 280, 251, 18));
+        horizontalLayout_5 = new QHBoxLayout(layoutWidget_8);
+        horizontalLayout_5->setSpacing(6);
+        horizontalLayout_5->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_5->setObjectName(QStringLiteral("horizontalLayout_5"));
+        horizontalLayout_5->setContentsMargins(0, 0, 0, 0);
+        label_45 = new QLabel(layoutWidget_8);
+        label_45->setObjectName(QStringLiteral("label_45"));
+
+        horizontalLayout_5->addWidget(label_45);
+
+        label_46 = new QLabel(layoutWidget_8);
+        label_46->setObjectName(QStringLiteral("label_46"));
+
+        horizontalLayout_5->addWidget(label_46);
+
+        pbarduinoT_ON = new QPushButton(groupBox);
+        pbarduinoT_ON->setObjectName(QStringLiteral("pbarduinoT_ON"));
+        pbarduinoT_ON->setGeometry(QRect(200, 152, 111, 121));
+        lineEdit_ID = new QLineEdit(groupBox);
+        lineEdit_ID->setObjectName(QStringLiteral("lineEdit_ID"));
+        lineEdit_ID->setGeometry(QRect(90, 50, 121, 16));
+        label_14 = new QLabel(groupBox);
+        label_14->setObjectName(QStringLiteral("label_14"));
+        label_14->setGeometry(QRect(20, 50, 41, 16));
+        comboBox_Function_2 = new QComboBox(groupBox);
+        comboBox_Function_2->setObjectName(QStringLiteral("comboBox_Function_2"));
+        comboBox_Function_2->setGeometry(QRect(90, 80, 121, 22));
+        label_15 = new QLabel(groupBox);
+        label_15->setObjectName(QStringLiteral("label_15"));
+        label_15->setGeometry(QRect(20, 80, 56, 16));
+        gestion_employe->addTab(Detectiongaz, QString());
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -366,7 +425,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        gestion_employe->setCurrentIndex(0);
+        gestion_employe->setCurrentIndex(3);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -454,7 +513,22 @@ public:
         );
         label_13->setText(QApplication::translate("MainWindow", "Inserer les informations d'employe a notifi\303\251 :", Q_NULLPTR));
         gestion_employe->setTabText(gestion_employe->indexOf(statistique), QApplication::translate("MainWindow", "Statistique Notification", Q_NULLPTR));
-        gestion_employe->setTabText(gestion_employe->indexOf(agenda), QApplication::translate("MainWindow", "Agenda", Q_NULLPTR));
+        groupBox->setTitle(QApplication::translate("MainWindow", "GroupBox", Q_NULLPTR));
+        pbarduinoT_off->setText(QApplication::translate("MainWindow", "Desactiver alarme", Q_NULLPTR));
+        label_45->setText(QApplication::translate("MainWindow", "Etat:", Q_NULLPTR));
+        label_46->setText(QString());
+        pbarduinoT_ON->setText(QApplication::translate("MainWindow", "Activer alarme", Q_NULLPTR));
+        label_14->setText(QApplication::translate("MainWindow", "CIN ", Q_NULLPTR));
+        comboBox_Function_2->clear();
+        comboBox_Function_2->insertItems(0, QStringList()
+         << QApplication::translate("MainWindow", "Responsable ressource humaines", Q_NULLPTR)
+         << QApplication::translate("MainWindow", "Responsable des affaires juridiques", Q_NULLPTR)
+         << QApplication::translate("MainWindow", "Responsable d'archives", Q_NULLPTR)
+         << QApplication::translate("MainWindow", "Responsable des citoyens", Q_NULLPTR)
+         << QApplication::translate("MainWindow", "Responsable des salles", Q_NULLPTR)
+        );
+        label_15->setText(QApplication::translate("MainWindow", "Function", Q_NULLPTR));
+        gestion_employe->setTabText(gestion_employe->indexOf(Detectiongaz), QApplication::translate("MainWindow", "Detection du gaz", Q_NULLPTR));
     } // retranslateUi
 
 };

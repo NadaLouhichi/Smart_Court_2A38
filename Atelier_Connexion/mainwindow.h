@@ -3,8 +3,8 @@
 
 #include <QMainWindow>
 #include "employee.h"
-#include <QMainWindow>
-#include <QMainWindow>
+#include "arduino.h"
+#include "secformdialog.h"
 #include <QSortFilterProxyModel>
 #include <QTextTableFormat>
 #include <QStandardItemModel>
@@ -13,9 +13,10 @@
 #include <QDesktopWidget>
 #include <QSettings>
 #include <QTextStream>
+#include <QtMultimedia/QMediaPlayer>
 #include <QFile>
-#include "secformdialog.h"
 #include <QDataStream>
+
 namespace Ui {
 class MainWindow;
 }
@@ -54,14 +55,24 @@ private slots:
     void on_pb_notifier_clicked();
     void on_pb_notifier_2_clicked();
 
-    //void on_calendarWidget_selectionChanged();
+
 
     void on_calendrier_clicked();
 
+
+    void update_label();
+    void on_pbarduinoT_ON_clicked();
+    void on_pbarduinoT_off_clicked();
+
+
 private:
     Ui::MainWindow *ui;
+     Employee E;
      SECFORMDialog *secDialog;
-    Employee E;
+     Arduino A;
+     QByteArray data; //(readfromarduino)
+     QMediaPlayer *player ;
+
 
 };
 

@@ -13,7 +13,10 @@ QString Event::name() const
 {
     return mName;
 }
-
+QString Event::information() const
+{
+    return minformation;
+}
 void Event::setName(const QString &name)
 {
     if (name != mName) {
@@ -21,7 +24,13 @@ void Event::setName(const QString &name)
         emit nameChanged(mName); //signal(emit)
     }
 }
-
+void Event::setinformation(const QString &information)
+{
+    if (information != minformation) {
+        minformation = information;
+        emit informationChanged(minformation); //signal(emit)
+    }
+}
 QDateTime Event::startDate() const
 {
     return mStartDate;

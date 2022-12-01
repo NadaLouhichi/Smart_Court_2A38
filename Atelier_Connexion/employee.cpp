@@ -45,20 +45,20 @@ bool Employee::ajouter()
 
 bool Employee::modifier_Employee(){
 
-           QSqlQuery query;
-           QString id_string=QString::number(CIN);
+    QSqlQuery query;
+    QString id_string=QString::number(CIN);
 
 
-          query.prepare(" UPDATE GS_EMPLOYE SET CIN =:CIN ,NOM = :Nom, PRENOM = :Prenom, EMAIL= :Email, PHONE= :Phone , FUNCTION= :Function ; MDPS=Mdp WHERE  CIN = :CIN");
-          query.bindValue(":CIN", id_string);
-          query.bindValue(":Nom", Nom);
-          query.bindValue(":Prenom", Prenom);
-          query.bindValue(":Email", Email);
-          query.bindValue(":Phone", Phone);
-          query.bindValue(":Function", Function);
-          query.bindValue(":Mdp", Mdp);
+   query.prepare(" UPDATE GS_EMPLOYE SET CIN =:CIN ,NOM = :Nom, PRENOM =:Prenom, EMAIL=:Email, PHONE=:Phone , FUNCTION=:Function , MDPS=:Mdp WHERE CIN = :CIN");
+   query.bindValue(":CIN", id_string);
+   query.bindValue(":Nom", Nom);
+   query.bindValue(":Prenom", Prenom);
+   query.bindValue(":Email", Email);
+   query.bindValue(":Phone", Phone);
+   query.bindValue(":Function", Function);
+   query.bindValue(":Mdp", Mdp);
 
-         return query.exec();
+  return query.exec();
 
 }
 bool Employee::supprimer(int CIN)
@@ -107,10 +107,10 @@ bool Employee::testNP(QString a ,QString p)
     if(testN and testP)
     {
        testNP=(testN and testP);
+       return testNP;
     }
-
+    else testNP=false;
     return testNP;
-
 }
 
 QSqlQueryModel *Employee::trier(QString x)
@@ -168,6 +168,36 @@ bool Employee::notification()
                         trayIcon->show();
                         trayIcon->showMessage("Attention" ,"Vous avez un affaire juridique dans deux jours",QSystemTrayIcon::Information,15000);
                         // include affaireJuridique.h n3ayet lel affichage
+                        if(trayIcon)
+                        {
+                           QSoundEffect * sound_effect = new QSoundEffect;
+                               sound_effect->setSource(QUrl("Desktop/studies/2A/projet/gestion employe_f/Atelier_Connexion/rsc/sound.wav"));
+                             // sound_effect->setLoopCount(QSoundEffect::Infinite);
+                               sound_effect->setVolume(0.9);
+                               sound_effect->play();
+                           //  QEventLoop loop;
+                           //  loop.exec();
+                         }
+           }
+      return test;
+}
+bool Employee::notificationA(QString Function)
+ {
+    bool  test=false;
+            int n=0;
+               QSqlQuery requete("select  FUNCTION from GS_Employe  where FUNCTION like '"+Function+"%'");
+            while(requete.next())
+                {
+                test=true;
+                n++;
+                 }
+            if(n!=0)
+
+            {
+                        QSystemTrayIcon *trayIcon = new QSystemTrayIcon;
+                        trayIcon->setIcon(QIcon(":Desktop/studies/2A/projet/gestion employe_f/Atelier_Connexion/rsc/notif.png"));
+                        trayIcon->show();
+                        trayIcon->showMessage("Attention" ,"Il y'a une fuite de gaz!!!",QSystemTrayIcon::Information,15000);
                         if(trayIcon)
                         {
                            QSoundEffect * sound_effect = new QSoundEffect;
