@@ -82,7 +82,9 @@ MainWindow::MainWindow(QWidget *parent) :
      connect(ui->sendBtn, SIGNAL(clicked()),this, SLOT(sendMail()));
      connect(ui->exitBtn, SIGNAL(clicked()),this, SLOT(close()));
      connect(ui->browseBtn, SIGNAL(clicked()), this, SLOT(browse()));
-    // ui->tableView_2->setModel(r.afficherR());
+     //
+
+    // ui->tableView_2->setModel(r.afficherA());
      //ui->tableView_2->horizontalHeader()->setStretchLastSection(true);
 
      QDate date = QDate::currentDate();
@@ -94,10 +96,21 @@ MainWindow::MainWindow(QWidget *parent) :
                 qry1.exec();
                 while(qry1.next()){
                  ui->comboBox_2->addItem(qry1.value(0).toString());
+                // ui->arduino->addItem(qry1.value(0).toString());
                  //ui->le_id_3->addItem(qry1.value(0).toString());
                  //ui->le_id_4->addItem(qry1.value(0).toString());
                  //ui->le_id_5->addItem(qry1.value(0).toString());
                 }
+                int ret=A.connect_arduino(); // lancer la connexion à arduino
+                switch(ret){
+                case(0):qDebug()<< "arduino is available and connected to : "<< A.getarduino_port_name();
+                    break;
+                case(1):qDebug() << "arduino is available but not connected to :" <<A.getarduino_port_name();
+                   break;
+                case(-1):qDebug() << "arduino is not available";
+                }
+                 QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_label())); // permet de lancer
+                 //le slot update_label suite à la reception du signal readyRead (reception des données).
 
 }
 
@@ -377,7 +390,7 @@ void MainWindow::on_pushBQ_2_clicked()
 
                                   {
 
-                                       int IDS=ui->tableView->model()->data(ui->tableView->model()->index(ui->tableView->currentIndex().row(),2)).toInt();
+                                       int IDS=ui->tableView->model()->data(ui->tableView->model()->index(ui->tableView->currentIndex().row(),1)).toInt();
 
                                        const qrcodegen::QrCode qr = qrcodegen::QrCode::encodeText(std::to_string(IDS).c_str(), qrcodegen::QrCode::Ecc::LOW);
 
@@ -401,5 +414,81 @@ void MainWindow::on_pushBQ_2_clicked()
                                        ui->label_8->setPixmap(pix);
 
                                   }
+
+}
+
+void MainWindow::on_pbarduinoT_O_clicked()
+{
+     A.write_to_arduino("1");
+}
+
+void MainWindow::on_sonore_clicked()
+{
+      A.write_to_arduino("0");
+}
+void MainWindow::update_label()
+{QMessageBox msgBox;
+    QSqlQuery qry;
+    data =A.read_from_arduino();
+    QString DataAsString = QString(data);
+        qDebug()<< "this is data:"<< data;
+   if (data =="ON")
+   {
+       //ui->label_45->setText("alarme activée");
+       ui->label_14->setText("alarm activée");
+        QMessageBox::warning(this,"Warning","Attention il ya un fuite de GAZ detecte !! ");
+        //E.notificationA();
+        QString IDS=ui->arduino->text();
+        QString ETAT="alarme activée";
+
+        qry.prepare ("UPDATE GS_SALLES set ETAT= :ETAT "
+                     "WHERE IDS= :IDS");
+
+        qry.bindValue(":IDS",IDS);
+        qry.bindValue(":ETAT",ETAT);
+
+        bool test=qry.exec();
+        if(test)
+        {msgBox.setText("Il reste du temps.");}
+        msgBox.exec();
+
+   }
+   else if (data =="OFF")
+   {
+       // ui->label_45->setText("alarme désactivée");
+       ui->label_14->setText("alarme désactivée");
+       QString IDS=ui->arduino->text();
+       QString ETAT="alarme désactivée";
+
+       qry.prepare ("UPDATE GS_SALLES set ETAT= :ETAT "
+                    "WHERE IDS= :IDS");
+
+       qry.bindValue(":IDS",IDS);
+       qry.bindValue(":ETAT",ETAT);
+
+       bool test=qry.exec();
+       if(test)
+       {msgBox.setText("Il reste du temps.");}
+       msgBox.exec();
+   }
+
+}
+
+void MainWindow::on_cha_clicked()
+{
+    QString ids= ui->arduino->text();
+    bool test=s.rechercher(ids);
+    if(test){
+        QMessageBox::information(nullptr, QObject::tr("ok"),
+                    QObject::tr("Recherche  effectué.\n"
+                                "Click Cancel to exit."), QMessageBox::Cancel);
+         ui->tabWidget_10->setCurrentIndex(9);
+
+
+    }
+    else
+        QMessageBox::critical(nullptr, QObject::tr("not ok"),
+                    QObject::tr("Recherche non effectué.\n"
+                                "Click Cancel to exit."), QMessageBox::Cancel);
 
 }

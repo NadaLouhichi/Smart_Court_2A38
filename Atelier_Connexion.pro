@@ -8,7 +8,8 @@ QT       += core gui sql
 QT += charts
 QT       += svg
 QT += printsupport
-QT += widgets qml quickwidgets quick opengl network printsupport widgets
+
+QT += widgets qml quickwidgets quick opengl network printsupport widgets serialport multimedia
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 QT += printsupport
 TARGET = Atelier_Connexion
@@ -28,6 +29,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+    arduino.cpp \
         main.cpp \
         mainwindow.cpp \
     connection.cpp \
@@ -39,6 +41,7 @@ SOURCES += \
     smtp.cpp
 
 HEADERS += \
+    arduino.h \
         mainwindow.h \
     connection.h \
     qrcode.h \

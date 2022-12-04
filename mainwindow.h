@@ -12,9 +12,11 @@
 #include <QSettings>
 #include <QTextStream>
 #include <QFile>
+#include <QtMultimedia/QMediaPlayer>
 #include <QDataStream>
 #include "salle.h"
 #include "smtp.h"
+#include "arduino.h"
 #include "reservation.h"
 
 namespace Ui {
@@ -68,11 +70,20 @@ private slots:
 
     void on_pushBQ_2_clicked();
 
+    void on_pbarduinoT_O_clicked();
+
+    void on_sonore_clicked();
+    void update_label();
+    void on_cha_clicked();
+
 private:
     Ui::MainWindow *ui;
     salle s;
     reservation r;
     QStringList files;
+    QMediaPlayer *player ;
+    QByteArray data;
+        Arduino A;
 };
 
 #endif // MAINWINDOW_H

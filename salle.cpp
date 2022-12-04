@@ -61,7 +61,20 @@ void salle:: ajouter(salle s)
 }
 // affichage
 QSqlQueryModel* salle::afficher(){
-   QString sQuery="SELECT IDS,NUMS,ETAGE,NBRB,NBRCH,NBRT FROM GS_SALLES ";
+   QString sQuery=("SELECT IDS,NUMS,ETAGE,NBRB,NBRCH,NBRT FROM GS_SALLES ");
+
+   QSqlQueryModel* model=new QSqlQueryModel();
+
+   QSqlQuery qry;
+
+   qry.prepare(sQuery);
+
+   qry.exec();
+   model->setQuery(qry);
+return model;
+}
+QSqlQueryModel* salle::afficherA(){
+   QString sQuery=("SELECT IDS,NUMS,ETAGE,NBRB,NBRCH,NBRT,ETAT FROM GS_SALLES ");
 
    QSqlQueryModel* model=new QSqlQueryModel();
 
@@ -80,7 +93,7 @@ bool salle::modifier_Salle(){
            QString nums=QString::number(NUMS);
 
 
-          qry.prepare(" UPDATE GS_SALLES SET IDS = :IDS, NUMS =:NUMS ,ETAGE = :ETAGE, NBRB= :NBRB, NBRCH= :NBRCH,NBRT= :NBRT WHERE  IDS = :IDS");
+          qry.prepare(" UPDATE GS_SALLES SET (IDS =:IDS, NUMS =:NUMS ,ETAGE =:ETAGE, NBRB=:NBRB, NBRCH=:NBRCH,NBRT=:NBRT) WHERE  IDS =:IDS");
 
                               qry.bindValue(":IDS",IDS);
                               qry.bindValue(":NUMS",NUMS);

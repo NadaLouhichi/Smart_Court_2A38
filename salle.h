@@ -30,6 +30,7 @@ public:
    void setnbrt(int);
     void ajouter(salle s);
     QSqlQueryModel* afficher();
+     QSqlQueryModel* afficherA();
     bool supprimer(QString);
     bool modifier_Salle();
     QSqlQueryModel *trier(QString);
