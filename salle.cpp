@@ -74,7 +74,7 @@ QSqlQueryModel* salle::afficher(){
 return model;
 }
 QSqlQueryModel* salle::afficherA(){
-   QString sQuery=("SELECT IDS,NUMS,ETAGE,NBRB,NBRCH,NBRT,ETAT FROM GS_SALLES ");
+   QString sQuery=("SELECT IDS,ETAT FROM GS_SALLES ");
 
    QSqlQueryModel* model=new QSqlQueryModel();
 

@@ -1,9 +1,11 @@
 #include <Servo.h>
+
 #define Buzzer 13
 #define Gas A1
 
 char data;
 int val;
+
 Servo myservo;
 void setup() {
 
@@ -11,31 +13,38 @@ void setup() {
   pinMode (A1,INPUT);
  
   pinMode(Buzzer,OUTPUT);
-  //analogWrite(Buzzer,LOW);
+  analogWrite(Buzzer,LOW);
    myservo.attach(8);
-  Serial.begin(9600);
+ 
   Serial.println("Starting my program");
+   lcd.begin(16, 2); /*16 colones 2 lignes*/
+ 
+ 
+   
+  Serial.begin(9600);/*permet d’initialiser la liaison Série à 9600 */
 }
 
 void loop()
 {
-  // put your main code here, to run repeatedly:
-
+   
     val = analogRead (Gas);
      Serial.println(val);
     if(val > 300)
     {
-      Serial.write("ON");
+      Serial.write("ONN");
       digitalWrite(Buzzer,HIGH);
        myservo.write(1000);
-      //delay(1000);
+      
+     
     }
     else
-    {
+    { 
+             
       Serial.write("OFF");
       digitalWrite(Buzzer,LOW);
        myservo.write(-360);
       //delay(1000);
+     
     }
 
     if(Serial.available()>0)
@@ -43,17 +52,19 @@ void loop()
       if(Serial.read() == '1')
       {
         digitalWrite(Buzzer,HIGH);
-        delay(1000);
+        delay(5000);
          myservo.write(180);
       }
       else if(Serial.read() == '0')
       {
         digitalWrite(Buzzer,LOW);
-        delay(1000);
+       delay(500);
           myservo.write(-180);
       }
     }
 
-    delay (500);
+    
  
+
 }
+     

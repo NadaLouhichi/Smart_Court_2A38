@@ -10,7 +10,7 @@
 #include <QVariant>
 #include <QAbstractEventDispatcher>
 #include <QDir>
-#include <QtQml>
+
 #include <QQuickView>
 #include "salle.h"
 #include "mainwindow.h"
@@ -84,7 +84,7 @@ MainWindow::MainWindow(QWidget *parent) :
      connect(ui->browseBtn, SIGNAL(clicked()), this, SLOT(browse()));
      //
 
-    // ui->tableView_2->setModel(r.afficherA());
+
      //ui->tableView_2->horizontalHeader()->setStretchLastSection(true);
 
      QDate date = QDate::currentDate();
@@ -427,17 +427,19 @@ void MainWindow::on_sonore_clicked()
       A.write_to_arduino("0");
 }
 void MainWindow::update_label()
-{QMessageBox msgBox;
+{
     QSqlQuery qry;
     data =A.read_from_arduino();
     QString DataAsString = QString(data);
         qDebug()<< "this is data:"<< data;
-   if (data =="ON")
+   if (data =="ONN")
    {
-       //ui->label_45->setText("alarme activée");
-       ui->label_14->setText("alarm activée");
-        QMessageBox::warning(this,"Warning","Attention il ya un fuite de GAZ detecte !! ");
-        //E.notificationA();
+
+       ui->label_61->setText("alarme activée");
+       ui->label_29->setText("alarme activée");
+       // QMessageBox::warning(this,"Warning","Attention il ya un fuite de GAZ detecte !! ");
+
+
         QString IDS=ui->arduino->text();
         QString ETAT="alarme activée";
 
@@ -446,17 +448,15 @@ void MainWindow::update_label()
 
         qry.bindValue(":IDS",IDS);
         qry.bindValue(":ETAT",ETAT);
+        s.afficherA();
+        ui->taba->setModel(s.afficherA());
 
-        bool test=qry.exec();
-        if(test)
-        {msgBox.setText("Il reste du temps.");}
-        msgBox.exec();
 
    }
    else if (data =="OFF")
    {
-       // ui->label_45->setText("alarme désactivée");
-       ui->label_14->setText("alarme désactivée");
+        ui->label_29->setText("alarme désactivée");
+       ui->label_61->setText("alarme désactivée");
        QString IDS=ui->arduino->text();
        QString ETAT="alarme désactivée";
 
@@ -465,12 +465,9 @@ void MainWindow::update_label()
 
        qry.bindValue(":IDS",IDS);
        qry.bindValue(":ETAT",ETAT);
-
-       bool test=qry.exec();
-       if(test)
-       {msgBox.setText("Il reste du temps.");}
-       msgBox.exec();
-   }
+       s.afficherA();
+ui->taba->setModel(s.afficherA());
+      }
 
 }
 
