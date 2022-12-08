@@ -1,4 +1,4 @@
-#include <Servo.h>
+ #include <Servo.h>
 
 #define Buzzer 13
 #define Gas A1
@@ -17,7 +17,7 @@ void setup() {
    myservo.attach(8);
  
   Serial.println("Starting my program");
-   lcd.begin(16, 2); /*16 colones 2 lignes*/
+ 
  
  
    
