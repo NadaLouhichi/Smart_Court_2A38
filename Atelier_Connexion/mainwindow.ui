@@ -17,21 +17,45 @@
    <widget class="QTabWidget" name="gestion_employe">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>30</y>
-      <width>1071</width>
-      <height>631</height>
+      <x>0</x>
+      <y>10</y>
+      <width>1091</width>
+      <height>661</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(190, 213, 255);
-border-color: rgb(190, 213, 255);
-border-top-color: rgb(190, 213, 255);
-border-left-color: rgb(190, 213, 255);
-selection-color: rgb(170, 170, 255);</string>
+     <string notr="true">QPushButton {
+    background-color:#395168;	
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+font-family:calibri;
+  display: inline-block;
+  font-size: 13px;
+  margin: 2px 1px;
+  border-radius : 16px;
+}
+QPushButton:hover
+{
+background-color: rgb(190, 213, 255)	;
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+font-family:calibri;
+  display: inline-block;
+  font-size: 13px;
+  margin: 2px 1px;
+  border-radius : 16px;
+}
+ 
+</string>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab_cruds">
      <attribute name="title">
@@ -47,7 +71,54 @@ selection-color: rgb(170, 170, 255);</string>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(210, 253, 255);
+       <string notr="true">QPushButton {
+    background-color:#395168;	
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+font-family:calibri;
+  display: inline-block;
+  font-size: 13px;
+  margin: 2px 1px;
+  border-radius : 16px;
+}
+QPushButton:hover
+{
+background-color: rgb(190, 213, 255)	;
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+font-family:calibri;
+  display: inline-block;
+  font-size: 13px;
+  margin: 2px 1px;
+  border-radius : 16px;
+}
+ 
+QLineEdit
+{
+background-color: white	;
+  border: none;
+  color: black;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+font-family:calibri;
+  display: inline-block;
+  font-size: 13px;
+  margin: 2px 1px;
+  border-radius : 16px;
+}
+QGroupBox{
+
+border:2px solid #395168;
+
+
+}
 </string>
       </property>
       <property name="title">
@@ -116,16 +187,13 @@ selection-color: rgb(170, 170, 255);</string>
        <property name="geometry">
         <rect>
          <x>270</x>
-         <y>230</y>
+         <y>217</y>
          <width>93</width>
-         <height>28</height>
+         <height>41</height>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(209, 203, 255);
-font: 8pt &quot;Microsoft JhengHei UI&quot;;
-color: rgb(255, 255, 255);
-border-radius:15px;</string>
+        <string notr="true"/>
        </property>
        <property name="text">
         <string>Ajouter</string>
@@ -229,14 +297,11 @@ border-radius:15px;</string>
          <x>270</x>
          <y>270</y>
          <width>93</width>
-         <height>28</height>
+         <height>41</height>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(209, 203, 255);
-font: 8pt &quot;Microsoft JhengHei UI&quot;;
-color: rgb(255, 255, 255);
-border-radius:15px;</string>
+        <string notr="true"/>
        </property>
        <property name="text">
         <string>Modifier</string>
@@ -303,7 +368,55 @@ border-radius:15px;</string>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(210, 253, 255);</string>
+       <string notr="true">QPushButton {
+    background-color:#395168;	
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+font-family:calibri;
+  display: inline-block;
+  font-size: 13px;
+  margin: 2px 1px;
+  border-radius : 16px;
+}
+QPushButton:hover
+{
+background-color: rgb(190, 213, 255)	;
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+font-family:calibri;
+  display: inline-block;
+  font-size: 13px;
+  margin: 2px 1px;
+  border-radius : 16px;
+}
+ 
+QLineEdit
+{
+background-color: white	;
+  border: none;
+  color: black;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+font-family:calibri;
+  display: inline-block;
+  font-size: 13px;
+  margin: 2px 1px;
+  border-radius : 16px;
+}
+QGroupBox{
+
+border:2px solid #395168;
+
+
+}
+</string>
       </property>
       <property name="title">
        <string>Suppression</string>
@@ -335,16 +448,13 @@ border-radius:15px;</string>
        <property name="geometry">
         <rect>
          <x>160</x>
-         <y>100</y>
+         <y>87</y>
          <width>93</width>
-         <height>28</height>
+         <height>41</height>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(209, 203, 255);
-font: 8pt &quot;Microsoft JhengHei UI&quot;;
-color: rgb(255, 255, 255);
-border-radius:15px;</string>
+        <string notr="true"/>
        </property>
        <property name="text">
         <string>Supprimer</string>
@@ -361,7 +471,55 @@ border-radius:15px;</string>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color:rgb(210, 253, 255);</string>
+       <string notr="true">QPushButton {
+    background-color:#395168;	
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+font-family:calibri;
+  display: inline-block;
+  font-size: 13px;
+  margin: 2px 1px;
+  border-radius : 16px;
+}
+QPushButton:hover
+{
+background-color: rgb(190, 213, 255)	;
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+font-family:calibri;
+  display: inline-block;
+  font-size: 13px;
+  margin: 2px 1px;
+  border-radius : 16px;
+}
+ 
+QLineEdit
+{
+background-color: white	;
+  border: none;
+  color: black;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+font-family:calibri;
+  display: inline-block;
+  font-size: 13px;
+  margin: 2px 1px;
+  border-radius : 16px;
+}
+QGroupBox{
+
+border:2px solid #395168;
+
+
+}
+</string>
       </property>
       <property name="title">
        <string>Affichage</string>
@@ -384,16 +542,13 @@ border-radius:15px;</string>
       <property name="geometry">
        <rect>
         <x>220</x>
-        <y>480</y>
+        <y>467</y>
         <width>121</width>
-        <height>28</height>
+        <height>41</height>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(209, 203, 255);
-font: 8pt &quot;Microsoft JhengHei UI&quot;;
-color: rgb(255, 255, 255);
-border-radius:15px;</string>
+       <string notr="true"/>
       </property>
       <property name="text">
        <string>Notifier Employe</string>
@@ -403,16 +558,13 @@ border-radius:15px;</string>
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>480</y>
+        <y>467</y>
         <width>93</width>
-        <height>28</height>
+        <height>41</height>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(209, 203, 255);
-font: 8pt &quot;Microsoft JhengHei UI&quot;;
-color: rgb(255, 255, 255);
-border-radius:15px;</string>
+       <string notr="true"/>
       </property>
       <property name="text">
        <string>statistique</string>
@@ -422,16 +574,13 @@ border-radius:15px;</string>
       <property name="geometry">
        <rect>
         <x>120</x>
-        <y>480</y>
+        <y>467</y>
         <width>93</width>
-        <height>28</height>
+        <height>41</height>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(209, 203, 255);
-font: 8pt &quot;Microsoft JhengHei UI&quot;;
-color: rgb(255, 255, 255);
-border-radius:15px;</string>
+       <string notr="true"/>
       </property>
       <property name="text">
        <string>Generer pdf</string>
@@ -441,16 +590,13 @@ border-radius:15px;</string>
       <property name="geometry">
        <rect>
         <x>350</x>
-        <y>480</y>
+        <y>467</y>
         <width>101</width>
-        <height>28</height>
+        <height>41</height>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(209, 203, 255);
-font: 8pt &quot;Microsoft JhengHei UI&quot;;
-color: rgb(255, 255, 255);
-border-radius:15px;</string>
+       <string notr="true"/>
       </property>
       <property name="text">
        <string>calendrier</string>
@@ -926,7 +1072,7 @@ border-radius:15px;</string>
 </string>
       </property>
       <property name="title">
-       <string>GroupBox</string>
+       <string>Detection de gaz</string>
       </property>
       <widget class="QPushButton" name="pbarduinoT_off">
        <property name="geometry">

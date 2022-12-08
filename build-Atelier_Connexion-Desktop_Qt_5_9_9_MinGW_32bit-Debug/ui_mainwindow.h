@@ -119,18 +119,89 @@ public:
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         gestion_employe = new QTabWidget(centralWidget);
         gestion_employe->setObjectName(QStringLiteral("gestion_employe"));
-        gestion_employe->setGeometry(QRect(20, 30, 1071, 631));
-        gestion_employe->setStyleSheet(QLatin1String("background-color: rgb(190, 213, 255);\n"
-"border-color: rgb(190, 213, 255);\n"
-"border-top-color: rgb(190, 213, 255);\n"
-"border-left-color: rgb(190, 213, 255);\n"
-"selection-color: rgb(170, 170, 255);"));
+        gestion_employe->setGeometry(QRect(0, 10, 1091, 661));
+        gestion_employe->setStyleSheet(QLatin1String("QPushButton {\n"
+"    background-color:#395168;	\n"
+"  border: none;\n"
+"  color: white;\n"
+"  padding: 10px;\n"
+"  text-align: center;\n"
+"  text-decoration: none;\n"
+"font-family:calibri;\n"
+"  display: inline-block;\n"
+"  font-size: 13px;\n"
+"  margin: 2px 1px;\n"
+"  border-radius : 16px;\n"
+"}\n"
+"QPushButton:hover\n"
+"{\n"
+"background-color: rgb(190, 213, 255)	;\n"
+"  border: none;\n"
+"  color: white;\n"
+"  padding: 10px;\n"
+"  text-align: center;\n"
+"  text-decoration: none;\n"
+"font-family:calibri;\n"
+"  display: inline-block;\n"
+"  font-size: 13px;\n"
+"  margin: 2px 1px;\n"
+"  border-radius : 16px;\n"
+"}\n"
+" \n"
+""));
         tab_cruds = new QWidget();
         tab_cruds->setObjectName(QStringLiteral("tab_cruds"));
         Ajoutmodification = new QGroupBox(tab_cruds);
         Ajoutmodification->setObjectName(QStringLiteral("Ajoutmodification"));
         Ajoutmodification->setGeometry(QRect(20, 10, 391, 391));
-        Ajoutmodification->setStyleSheet(QLatin1String("background-color: rgb(210, 253, 255);\n"
+        Ajoutmodification->setStyleSheet(QLatin1String("QPushButton {\n"
+"    background-color:#395168;	\n"
+"  border: none;\n"
+"  color: white;\n"
+"  padding: 10px;\n"
+"  text-align: center;\n"
+"  text-decoration: none;\n"
+"font-family:calibri;\n"
+"  display: inline-block;\n"
+"  font-size: 13px;\n"
+"  margin: 2px 1px;\n"
+"  border-radius : 16px;\n"
+"}\n"
+"QPushButton:hover\n"
+"{\n"
+"background-color: rgb(190, 213, 255)	;\n"
+"  border: none;\n"
+"  color: white;\n"
+"  padding: 10px;\n"
+"  text-align: center;\n"
+"  text-decoration: none;\n"
+"font-family:calibri;\n"
+"  display: inline-block;\n"
+"  font-size: 13px;\n"
+"  margin: 2px 1px;\n"
+"  border-radius : 16px;\n"
+"}\n"
+" \n"
+"QLineEdit\n"
+"{\n"
+"background-color: white	;\n"
+"  border: none;\n"
+"  color: black;\n"
+"  padding: 10px;\n"
+"  text-align: center;\n"
+"  text-decoration: none;\n"
+"font-family:calibri;\n"
+"  display: inline-block;\n"
+"  font-size: 13px;\n"
+"  margin: 2px 1px;\n"
+"  border-radius : 16px;\n"
+"}\n"
+"QGroupBox{\n"
+"\n"
+"border:2px solid #395168;\n"
+"\n"
+"\n"
+"}\n"
 ""));
         lineEdit_Nom = new QLineEdit(Ajoutmodification);
         lineEdit_Nom->setObjectName(QStringLiteral("lineEdit_Nom"));
@@ -149,11 +220,8 @@ public:
         label_3->setGeometry(QRect(10, 130, 56, 16));
         pb_ajouter = new QPushButton(Ajoutmodification);
         pb_ajouter->setObjectName(QStringLiteral("pb_ajouter"));
-        pb_ajouter->setGeometry(QRect(270, 230, 93, 28));
-        pb_ajouter->setStyleSheet(QLatin1String("background-color: rgb(209, 203, 255);\n"
-"font: 8pt \"Microsoft JhengHei UI\";\n"
-"color: rgb(255, 255, 255);\n"
-"border-radius:15px;"));
+        pb_ajouter->setGeometry(QRect(270, 217, 93, 41));
+        pb_ajouter->setStyleSheet(QStringLiteral(""));
         label_4 = new QLabel(Ajoutmodification);
         label_4->setObjectName(QStringLiteral("label_4"));
         label_4->setGeometry(QRect(20, 280, 56, 16));
@@ -180,18 +248,63 @@ public:
         lineEdit_CIN->setGeometry(QRect(100, 30, 113, 22));
         pb_modifier = new QPushButton(Ajoutmodification);
         pb_modifier->setObjectName(QStringLiteral("pb_modifier"));
-        pb_modifier->setGeometry(QRect(270, 270, 93, 28));
-        pb_modifier->setStyleSheet(QLatin1String("background-color: rgb(209, 203, 255);\n"
-"font: 8pt \"Microsoft JhengHei UI\";\n"
-"color: rgb(255, 255, 255);\n"
-"border-radius:15px;"));
+        pb_modifier->setGeometry(QRect(270, 270, 93, 41));
+        pb_modifier->setStyleSheet(QStringLiteral(""));
         comboBox_Function = new QComboBox(Ajoutmodification);
         comboBox_Function->setObjectName(QStringLiteral("comboBox_Function"));
         comboBox_Function->setGeometry(QRect(102, 280, 111, 22));
         suppression = new QGroupBox(tab_cruds);
         suppression->setObjectName(QStringLiteral("suppression"));
         suppression->setGeometry(QRect(510, 400, 281, 151));
-        suppression->setStyleSheet(QStringLiteral("background-color: rgb(210, 253, 255);"));
+        suppression->setStyleSheet(QLatin1String("QPushButton {\n"
+"    background-color:#395168;	\n"
+"  border: none;\n"
+"  color: white;\n"
+"  padding: 10px;\n"
+"  text-align: center;\n"
+"  text-decoration: none;\n"
+"font-family:calibri;\n"
+"  display: inline-block;\n"
+"  font-size: 13px;\n"
+"  margin: 2px 1px;\n"
+"  border-radius : 16px;\n"
+"}\n"
+"QPushButton:hover\n"
+"{\n"
+"background-color: rgb(190, 213, 255)	;\n"
+"  border: none;\n"
+"  color: white;\n"
+"  padding: 10px;\n"
+"  text-align: center;\n"
+"  text-decoration: none;\n"
+"font-family:calibri;\n"
+"  display: inline-block;\n"
+"  font-size: 13px;\n"
+"  margin: 2px 1px;\n"
+"  border-radius : 16px;\n"
+"}\n"
+" \n"
+"QLineEdit\n"
+"{\n"
+"background-color: white	;\n"
+"  border: none;\n"
+"  color: black;\n"
+"  padding: 10px;\n"
+"  text-align: center;\n"
+"  text-decoration: none;\n"
+"font-family:calibri;\n"
+"  display: inline-block;\n"
+"  font-size: 13px;\n"
+"  margin: 2px 1px;\n"
+"  border-radius : 16px;\n"
+"}\n"
+"QGroupBox{\n"
+"\n"
+"border:2px solid #395168;\n"
+"\n"
+"\n"
+"}\n"
+""));
         label_8 = new QLabel(suppression);
         label_8->setObjectName(QStringLiteral("label_8"));
         label_8->setGeometry(QRect(20, 50, 56, 16));
@@ -200,47 +313,80 @@ public:
         lineEdit_Supp->setGeometry(QRect(90, 50, 113, 22));
         pb_supprimer = new QPushButton(suppression);
         pb_supprimer->setObjectName(QStringLiteral("pb_supprimer"));
-        pb_supprimer->setGeometry(QRect(160, 100, 93, 28));
-        pb_supprimer->setStyleSheet(QLatin1String("background-color: rgb(209, 203, 255);\n"
-"font: 8pt \"Microsoft JhengHei UI\";\n"
-"color: rgb(255, 255, 255);\n"
-"border-radius:15px;"));
+        pb_supprimer->setGeometry(QRect(160, 87, 93, 41));
+        pb_supprimer->setStyleSheet(QStringLiteral(""));
         affichage = new QGroupBox(tab_cruds);
         affichage->setObjectName(QStringLiteral("affichage"));
         affichage->setGeometry(QRect(450, 20, 581, 341));
-        affichage->setStyleSheet(QStringLiteral("background-color:rgb(210, 253, 255);"));
+        affichage->setStyleSheet(QLatin1String("QPushButton {\n"
+"    background-color:#395168;	\n"
+"  border: none;\n"
+"  color: white;\n"
+"  padding: 10px;\n"
+"  text-align: center;\n"
+"  text-decoration: none;\n"
+"font-family:calibri;\n"
+"  display: inline-block;\n"
+"  font-size: 13px;\n"
+"  margin: 2px 1px;\n"
+"  border-radius : 16px;\n"
+"}\n"
+"QPushButton:hover\n"
+"{\n"
+"background-color: rgb(190, 213, 255)	;\n"
+"  border: none;\n"
+"  color: white;\n"
+"  padding: 10px;\n"
+"  text-align: center;\n"
+"  text-decoration: none;\n"
+"font-family:calibri;\n"
+"  display: inline-block;\n"
+"  font-size: 13px;\n"
+"  margin: 2px 1px;\n"
+"  border-radius : 16px;\n"
+"}\n"
+" \n"
+"QLineEdit\n"
+"{\n"
+"background-color: white	;\n"
+"  border: none;\n"
+"  color: black;\n"
+"  padding: 10px;\n"
+"  text-align: center;\n"
+"  text-decoration: none;\n"
+"font-family:calibri;\n"
+"  display: inline-block;\n"
+"  font-size: 13px;\n"
+"  margin: 2px 1px;\n"
+"  border-radius : 16px;\n"
+"}\n"
+"QGroupBox{\n"
+"\n"
+"border:2px solid #395168;\n"
+"\n"
+"\n"
+"}\n"
+""));
         tab_employee = new QTableView(affichage);
         tab_employee->setObjectName(QStringLiteral("tab_employee"));
         tab_employee->setGeometry(QRect(10, 20, 561, 311));
         tab_employee->setStyleSheet(QStringLiteral("background-color:rgb(255,253,255);"));
         pb_notifier = new QPushButton(tab_cruds);
         pb_notifier->setObjectName(QStringLiteral("pb_notifier"));
-        pb_notifier->setGeometry(QRect(220, 480, 121, 28));
-        pb_notifier->setStyleSheet(QLatin1String("background-color: rgb(209, 203, 255);\n"
-"font: 8pt \"Microsoft JhengHei UI\";\n"
-"color: rgb(255, 255, 255);\n"
-"border-radius:15px;"));
+        pb_notifier->setGeometry(QRect(220, 467, 121, 41));
+        pb_notifier->setStyleSheet(QStringLiteral(""));
         pb_statistique = new QPushButton(tab_cruds);
         pb_statistique->setObjectName(QStringLiteral("pb_statistique"));
-        pb_statistique->setGeometry(QRect(20, 480, 93, 28));
-        pb_statistique->setStyleSheet(QLatin1String("background-color: rgb(209, 203, 255);\n"
-"font: 8pt \"Microsoft JhengHei UI\";\n"
-"color: rgb(255, 255, 255);\n"
-"border-radius:15px;"));
+        pb_statistique->setGeometry(QRect(20, 467, 93, 41));
+        pb_statistique->setStyleSheet(QStringLiteral(""));
         pb_generatepdf = new QPushButton(tab_cruds);
         pb_generatepdf->setObjectName(QStringLiteral("pb_generatepdf"));
-        pb_generatepdf->setGeometry(QRect(120, 480, 93, 28));
-        pb_generatepdf->setStyleSheet(QLatin1String("background-color: rgb(209, 203, 255);\n"
-"font: 8pt \"Microsoft JhengHei UI\";\n"
-"color: rgb(255, 255, 255);\n"
-"border-radius:15px;"));
+        pb_generatepdf->setGeometry(QRect(120, 467, 93, 41));
+        pb_generatepdf->setStyleSheet(QStringLiteral(""));
         calendrier = new QPushButton(tab_cruds);
         calendrier->setObjectName(QStringLiteral("calendrier"));
-        calendrier->setGeometry(QRect(350, 480, 101, 28));
-        calendrier->setStyleSheet(QLatin1String("background-color: rgb(209, 203, 255);\n"
-"font: 8pt \"Microsoft JhengHei UI\";\n"
-"color: rgb(255, 255, 255);\n"
-"border-radius:15px;"));
+        calendrier->setGeometry(QRect(350, 467, 101, 41));
+        calendrier->setStyleSheet(QStringLiteral(""));
         gestion_employe->addTab(tab_cruds, QString());
         tri = new QWidget();
         tri->setObjectName(QStringLiteral("tri"));
@@ -425,7 +571,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        gestion_employe->setCurrentIndex(3);
+        gestion_employe->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -513,7 +659,7 @@ public:
         );
         label_13->setText(QApplication::translate("MainWindow", "Inserer les informations d'employe a notifi\303\251 :", Q_NULLPTR));
         gestion_employe->setTabText(gestion_employe->indexOf(statistique), QApplication::translate("MainWindow", "Statistique Notification", Q_NULLPTR));
-        groupBox->setTitle(QApplication::translate("MainWindow", "GroupBox", Q_NULLPTR));
+        groupBox->setTitle(QApplication::translate("MainWindow", "Detection de gaz", Q_NULLPTR));
         pbarduinoT_off->setText(QApplication::translate("MainWindow", "Desactiver alarme", Q_NULLPTR));
         label_45->setText(QApplication::translate("MainWindow", "Etat:", Q_NULLPTR));
         label_46->setText(QString());

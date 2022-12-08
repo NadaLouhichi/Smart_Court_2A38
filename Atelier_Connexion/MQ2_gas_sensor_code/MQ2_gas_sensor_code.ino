@@ -42,7 +42,7 @@ void loop() {
       if(data == '1')
       {
         if(analogSensor>sensorThres)
-        {
+        {   
             lcd.clear();
             Serial.write("ON");
             myservo.write(0);
@@ -52,12 +52,10 @@ void loop() {
             myservo.write(90);
             delay(3000);
             myservo.write(180); 
-             lcd.setCursor(0,1);
-             lcd.print("Fenetre ouverte" );  
-            lcd.clear();
              String CIN="";
       for(int i=0;i<16;i++)
           {   
+            
                data=Serial.read();
                CIN+=data;
                lcd.setCursor(3,0);
@@ -75,18 +73,16 @@ void loop() {
              }
       }
       else if(data == '0')
-      {
+      {   
         if(analogSensor<sensorThres)
-        {
+        {   
+            lcd.clear();
             Serial.write("OFF");
             digitalWrite(redLed, LOW);
             digitalWrite(greenLed, HIGH);
             digitalWrite(buzzer,LOW);
-             myservo.write(0);
-              lcd.setCursor(0,1);
-             lcd.print("Fenetre Fermé" );   
+             myservo.write(0);  
             data=Serial.read();
-            lcd.clear();
             String CIN="";
          for(int i=0;i<16;i++)
            {    

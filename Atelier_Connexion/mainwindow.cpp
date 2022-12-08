@@ -331,19 +331,30 @@ void MainWindow::on_pbarduinoT_ON_clicked()
     A.write_to_arduino("1");
     int CIN=ui->lineEdit_ID->text().toInt();
     QString id_string=QString::number(CIN);
+    bool test=E.rechercher(id_string);
+    if(test)
+    {
     A.write_to_arduino(id_string.toStdString().c_str());
     QString Function=ui->comboBox_Function_2->currentText();
-    E.notificationA(Function);
-    QMessageBox::warning(this,"Warning","Attention il ya un fuite de GAZ detecte !! ");
+    data =A.read_from_arduino();
+    QString DataAsString = QString(data);
+     E.notificationA(Function);
+     QMessageBox::warning(this,"Warning","Attention il ya un fuite de GAZ detecte !! ");
+    }
 }
 //OFF
 void MainWindow::on_pbarduinoT_off_clicked()
 {
+    A.write_to_arduino("0");
     int CIN=ui->lineEdit_ID->text().toInt();
     QString id_string=QString::number(CIN);
-    A.write_to_arduino(id_string.toStdString().c_str());
     QString Function=ui->comboBox_Function_2->currentText();
-    A.write_to_arduino("0");
+    bool test=E.rechercher(id_string);
+    if(test)
+    {
+      A.write_to_arduino(id_string.toStdString().c_str());
+    }
+
 
 }
 void MainWindow::update_label()
